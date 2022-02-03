@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { InboxIcon } from '@heroicons/react/outline';
 
 export default function Register() {
     // Inputs
@@ -55,15 +56,16 @@ export default function Register() {
     }
 
     return (
-        <div>
+        <div className='xs:flex xs:flex-col xs:justify-center xs:px-3 xs:py-4 xs:w-full xs:absolute xs:top-1/2 xs:-translate-y-1/2'>
             <div>
-                <h1>Login</h1>
+                <h1 className='xs:w-auto xs:text-center xs:font-bold xs:text-3xl xs:text-green-400 xs:mb-2'>Register User</h1>
                 <span>{successMsg !== '' ? successMsg : errorMsg}</span>
             </div>
-            <form onSubmit={(e) => registerUser(e)}>
-                <div>
-                    <label htmlFor="email">Email</label>
+            <form className='' onSubmit={(e) => registerUser(e)}>
+                <div className='xs:flex xs:flex-row xs:items-center xs:py-2 xs:my-4 xs:border-b-2'>
+                    <InboxIcon className='xs:h-6 xs:w-6 xs:mr-2'/>
                     <input 
+                        className='xs:w-full xs:h-10 xs:px-2'
                         type="email" 
                         autoComplete='off' 
                         id='email' 
@@ -73,9 +75,10 @@ export default function Register() {
                     />
                     <small></small>
                 </div>
-                <div>
-                    <label htmlFor="password">Password</label>
+                <div className='xs:flex xs:flex-col xs:items-start xs:py-2 xs:my-4 xs:border-b-2'>
+                    <label className='xs:text-md xs:my-2' htmlFor="password">Password</label>
                     <input 
+                        className='xs:w-full xs:h-10 xs:px-2'
                         type="password" 
                         autoComplete='off' 
                         id='password' 
@@ -85,9 +88,10 @@ export default function Register() {
                     />
                     <small></small>
                 </div>
-                <div>
-                    <label htmlFor="confirm_password">Confirm password</label>
+                <div className='xs:flex xs:flex-col xs:items-start xs:py-2 xs:my-4 xs:border-b-2'>
+                    <label className='xs:text-md xs:my-2' htmlFor="confirm_password">Confirm password</label>
                     <input 
+                        className='xs:w-full xs:h-10 xs:px-2'   
                         type="password" 
                         autoComplete='off' 
                         id='confirm_password' 
@@ -96,7 +100,8 @@ export default function Register() {
                     />
                     <small></small>
                 </div>
-                <button type='submit'>Register</button>
+                <button className='xs:w-full xs:bg-green-400 xs:text-white xs:py-2 xs:px-4 xs:rounded-md xs:mt-4' type='submit'>Register</button>
+                <small className='xs:w-auto xs:block xs:text-center xs:my-4'>Forgot password? <Link className='xs:text-blue-500' to={'#'}>Recover here</Link></small>
             </form>
         </div>
     )
