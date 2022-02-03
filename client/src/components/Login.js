@@ -71,7 +71,6 @@ export default function Login() {
                         placeholder='Email' 
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <small></small>
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
@@ -83,7 +82,6 @@ export default function Login() {
                         placeholder='******'
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <small></small>
                 </div>
                 <button type='submit'>Login</button>
             </form>
