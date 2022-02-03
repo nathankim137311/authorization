@@ -16,7 +16,7 @@ export default function Register() {
         if (successMsg !== '') {
             const timer = setTimeout(() => {
                 navigate('/auth/login');
-              }, 3000);
+            }, 3000);
             return () => clearTimeout(timer);
         }
     }, [successMsg]);
