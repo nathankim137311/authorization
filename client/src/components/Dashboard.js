@@ -50,15 +50,15 @@ export default function Dashboard() {
 
     if (isLoading) {
         return (
-            <div>
+            <div className='xs:absolute xs:top-1/2 xs:-translate-y-1/2'>
                 <h1>Not authorized... you are being redirected to the login page</h1>
             </div>
         )
     }
 
     return (
-        <div>
-            <h1>SUPER SECRET CONFIDENTIAL INFORMATION</h1>
+        <div className='xs:absolute xs:top-1/2 xs:-translate-y-1/2 xs:px-2 xs:text-green-400'>
+            <h1 className='xs:text-xl xs:font-bold xs:text-center'>SUPER SECRET CONFIDENTIAL INFO</h1>
         </div>
     )
 }
