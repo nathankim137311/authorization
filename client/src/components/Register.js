@@ -43,10 +43,12 @@ export default function Register() {
             const data = await response.json();
 
             if (data.error) {
+                setSuccessMsg('');
                 return setErrorMsg(data.error);
             }
 
             if (data.user) {
+                setErrorMsg('');
                 return setSuccessMsg('Successfully registered user'); 
             }
 
@@ -63,9 +65,9 @@ export default function Register() {
                 <div>
                     <h1 className='xs:w-auto xs:text-center xs:font-bold xs:text-3xl xs:text-green-400 xs:mb-2'>Register User</h1>
                 </div>
-                <form className='' onSubmit={(e) => registerUser(e)}>
+                <form onSubmit={(e) => registerUser(e)}>
                     <div className='xs:flex xs:flex-col xs:items-start xs:py-2 xs:my-4 xs:border-b-2'>
-                        <label className='xs:text-md xs:my-2' htmlFor="email">Email</label>
+                        <label className='xs:text-md xs:my-2 xs:text-sm' htmlFor="email">Email</label>
                         <input 
                             className='xs:w-full xs:h-10 xs:px-2'
                             type="email" 
@@ -77,7 +79,7 @@ export default function Register() {
                             />
                     </div>
                     <div className='xs:flex xs:flex-col xs:items-start xs:py-2 xs:my-4 xs:border-b-2'>
-                        <label className='xs:text-md xs:my-2' htmlFor="password">Password</label>
+                        <label className='xs:text-md xs:my-2 xs:text-sm' htmlFor="password">Password</label>
                         <input 
                             className='xs:w-full xs:h-10 xs:px-2'
                             type="password" 
@@ -89,7 +91,7 @@ export default function Register() {
                             />
                     </div>
                     <div className='xs:flex xs:flex-col xs:items-start xs:py-2 xs:my-4 xs:border-b-2'>
-                        <label className='xs:text-md xs:my-2' htmlFor="confirm_password">Confirm password</label>
+                        <label className='xs:text-md xs:my-2 xs:text-sm' htmlFor="confirm_password">Confirm password</label>
                         <input 
                             className='xs:w-full xs:h-10 xs:px-2'   
                             type="password" 
@@ -107,7 +109,7 @@ export default function Register() {
     )
 }
 
-const SuccessMsg = ({ message }) => {
+export const SuccessMsg = ({ message }) => {
     return (
         <div className='xs:flex xs:flex-row xs:items-center xs:justify-center xs:px-2 xs:py-4 xs:bg-green-300'>
             <CheckCircleIcon className='xs:h-6 xs:w-6 xs:mr-2 xs:text-green-600'/>
@@ -116,7 +118,7 @@ const SuccessMsg = ({ message }) => {
     )
 }
 
-const ErrorMsg = ({ message }) => {
+export const ErrorMsg = ({ message }) => {
     return (
         <div className='xs:flex xs:flex-row xs:items-center xs:justify-center xs:px-2 xs:py-4 xs:bg-red-300'>
             <ExclamationCircleIcon className='xs:h-6 xs:w-6 xs:mr-2 xs:text-red-600'/>
